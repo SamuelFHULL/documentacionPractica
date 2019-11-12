@@ -9,4 +9,7 @@ RSpec.describe Alimentos do
   it "La clase alimento tiene un nombre" do
 	  expect(@carne_vaca.nombre).to eq("Carne de vaca")	  
   end
+  it "Existe gases de efecto invernadero" do
+	  expect(@carne_vaca.gei).to eq(50.0)
+  end
 end
