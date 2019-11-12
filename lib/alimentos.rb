@@ -4,12 +4,12 @@
  # class Error < StandardError; end
   class Alimento
 	  attr_reader :nombre
-	  def initialize(nombre)
+	  def initialize(nombre, proteinas, carbohidratos, lipidos, gei, terreno)
 		  @nombre = nombre
+		  @proteinas = proteinas
+		  @carbohidratos = carbohidratos
+		  
+
 	  end
   end
 #end
-
-
-carne = Alimento.new("carne")
-puts carne.nombre
