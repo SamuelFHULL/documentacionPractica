@@ -1,11 +1,5 @@
 
-<style>
-	#titulo{
-		background-color: red;
-	}
-</style>
-
-<h1 id="titulo">PRÁCTICA 6 - DESARROLLO DIRIGIDO POR PRUEBAS TDD</h1>
+<h1 id="titulo" style="background-color: red">PRÁCTICA 6 - DESARROLLO DIRIGIDO POR PRUEBAS TDD</h1>
 
 <h3 id="info"><strong>Autor:</strong> Samuel Fumero Hernández </h3>
 
