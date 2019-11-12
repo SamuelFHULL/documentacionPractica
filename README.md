@@ -22,7 +22,7 @@
 
 <p><strong>Referencias</strong></p>
 <ul>
-	<li><u>Guión de la práctica</u>: <a href="https://campusvirtual.ull.es/1920/pluginfile.php/112854/mod_resource/content/31/prct6.pdf">guión práctica 6 - TDD</a></li>
+	<li><u>Guión de la práctica</u>: <a href="https://campusvirtual.ull.es/1920/pluginfile.php/112854/mod_resource/content/31/prct6.pdf" type="_blank">guión práctica 6 - TDD</a></li>
 </ul>
 
 
