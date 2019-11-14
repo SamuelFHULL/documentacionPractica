@@ -11,8 +11,8 @@ class Alimento
 	def to_s
 		"Nombre: #{@nombre}.\nProteinas: #{@proteinas}\nCarbohidratos: #{@carbohidratos}\nLipidos: #{@lipidos}\nGEI: #{@gei}\nTerreno: #{@terreno}"
 	end
+	#def valorEnergetico
+	#	@proteinas*4 + @carbohidratos*4 + @lipidos*9
+	#end
 		
 end
-
-carne_de_vaca = Alimento.new("Carne de vaca", 21.1, 0.0, 3.1, 50.0,164.0)
-puts carne_de_vaca.to_s
