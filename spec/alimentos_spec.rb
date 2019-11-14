@@ -26,4 +26,7 @@ RSpec.describe Alimentos do
   it "Existe un método para obtener el terreno utilizado" do
 	  expect(@carne_vaca.terreno).to eq(164.0)
   end
+  it "Existe un metodo para obtener el alimento formateado" do
+	  expect(@carne_vaca.respond_to?(to_s)).to eq(true)
+  end
 end
