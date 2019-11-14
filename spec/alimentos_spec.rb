@@ -17,10 +17,13 @@ RSpec.describe Alimentos do
   it "Existe cantidad de terreno utilizado" do
 	  expect(@carne_vaca.instance_variable_defined?("@terreno")).to eq(true)
   end
-  it "La clase alimento tiene un nombre" do
+  it "Existe un metodo para obtener el nombre del alimento" do
 	  expect(@carne_vaca.nombre).to eq("Carne de vaca")	  
   end
-  it "Existe gases de efecto invernadero" do
+  it "Existe un metodo para obtener las emisiones de gases de efecto invernadero" do
 	  expect(@carne_vaca.gei).to eq(50.0)
+  end
+  it "Existe un método para obtener el terreno utilizado" do
+	  expect(@carne_vaca.terreno).to eq(164.0)
   end
 end
