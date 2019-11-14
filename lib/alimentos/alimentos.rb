@@ -11,8 +11,8 @@ class Alimento
 	def to_s
 		"Nombre: #{@nombre}.\nProteinas: #{@proteinas}\nCarbohidratos: #{@carbohidratos}\nLipidos: #{@lipidos}\nGEI: #{@gei}\nTerreno: #{@terreno}"
 	end
-	#def valorEnergetico
-	#	@proteinas*4 + @carbohidratos*4 + @lipidos*9
-	#end
+	def valorEnergetico
+		(@proteinas*4 + @carbohidratos*4 + @lipidos*9).round(4)
+	end
 		
 end

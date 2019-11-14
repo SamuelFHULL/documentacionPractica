@@ -29,7 +29,12 @@ RSpec.describe Alimentos do
   it "Existe un metodo para obtener el alimento formateado" do
 	  expect(@carne_vaca.to_s).to eq("Nombre: Carne de vaca.\nProteinas: 21.1\nCarbohidratos: 0.0\nLipidos: 3.1\nGEI: 50.0\nTerreno: 164.0")
   end
-  it "Existe un metodo para obtener el valor energerico de cada alimento" do
-	  expect(@carne_vaca.valorEnergetico.respond_to? :valorEnergetico).to eq(true)
+  it "Existe un metodo para obtener valor energetico del alimento"do
+	  expect(@carne_vaca.valorEnergetico).to eq(112.3)
   end
+  #it "Existe un metodo para obtener el valor energerico de cada alimento" do
+#	  expect(@carne_vaca.valorEnergetico.respond_to?(:valorEnergetico)).to eq(true)
+ # end
+
+  
 end
