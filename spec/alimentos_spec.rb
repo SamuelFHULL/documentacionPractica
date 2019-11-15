@@ -25,6 +25,7 @@ RSpec.describe Alimentos do
   it "has a version number" do
     expect(Alimentos::VERSION).not_to be nil
   end
+  context "Existencia de variables de instancia" do
   it "Existe un nombre de alimento" do
 	  expect(@carne_vaca.instance_variable_defined?("@nombre")).to eq(true)
   end
@@ -34,6 +35,8 @@ RSpec.describe Alimentos do
   it "Existe cantidad de terreno utilizado" do
 	  expect(@carne_vaca.instance_variable_defined?("@terreno")).to eq(true)
   end
+  end
+  context "Se puede acceder a las variables de instancia" do
   it "Existe un metodo para obtener el nombre del alimento" do
 	  expect(@carne_vaca.nombre).to eq("Carne de vaca")	  
   end
@@ -43,6 +46,7 @@ RSpec.describe Alimentos do
   it "Existe un método para obtener el terreno utilizado" do
 	  expect(@carne_vaca.terreno).to eq(164.0)
   end
+  end
   it "Existe un metodo para obtener el alimento formateado" do
 	  expect(@carne_vaca.to_s).to eq("Nombre: Carne de vaca.\nProteinas: 21.1\nCarbohidratos: 0.0\nLipidos: 3.1\nGEI: 50.0\nTerreno: 164.0")
   end
@@ -51,7 +55,7 @@ RSpec.describe Alimentos do
   end
 
   it "Existe metodo impacto ambiental" do
-	  expect(@carne_vaca.impactoAmbiental(@lista_alimentos, @lista_cantidades,0)).to eq(412.38, 1141.14)
+	  expect(@carne_vaca.impactoAmbiental(@lista_alimentos, @lista_cantidades,0)).to eq(1559.7199999999998)
   end
 
   
