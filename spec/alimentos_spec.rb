@@ -67,4 +67,8 @@ RSpec.describe Lista do
 			l1 = Lista.new
 		end
 	end
+	#context "Atributos de la clase" do
+	#end
 end
+
+
