@@ -71,10 +71,10 @@ RSpec.describe Lista do
 	#end
 end
 
-RSpec.describe Nodo do
+RSpec.describe Node do
 	context "Estructura Nodo" do
 		it "Existe la estructura nodo" do
-			n1 = Nodo.new
+			n1 = Node.new
 		end
 	end
 end
