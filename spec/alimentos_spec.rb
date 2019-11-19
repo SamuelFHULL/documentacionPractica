@@ -72,7 +72,10 @@ RSpec.describe Alimentos do
      end
 	context "La lisya Lola" do
 	  it "Tiene cabeza" do
-		  expect(@la_lista_Lola.instance_variable_defined?("@head")).to eq(true)
+            expect(@la_lista_Lola.instance_variable_defined?("@head")).to eq(true)
+	  end
+	  it "Tiene cola" do
+            expect(@la_lista_lola.instance_variable_defined?("@tail")).to eq(true)
 	  end
 	    
 	end
