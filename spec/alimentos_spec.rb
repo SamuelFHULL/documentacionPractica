@@ -71,4 +71,12 @@ RSpec.describe Lista do
 	#end
 end
 
+RSpec.describe Nodo do
+	context "Estructura Nodo" do
+		it "Existe la estructura nodo" do
+			n1 = Nodo.new
+		end
+	end
+end
+
 
