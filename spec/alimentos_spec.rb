@@ -22,6 +22,7 @@ RSpec.describe Alimentos do
     @lista_cantidades = [2,4,3,7,10,2,7,4,6]
 
     @n1 = Node.new(@camarones,nil,nil)
+    @la_lista_Lola = Lista.new
 
   end
 
@@ -69,8 +70,12 @@ RSpec.describe Alimentos do
         l1 = Lista.new
       end
      end
-	#context "Atributos de la clase" do
-	#end
+	context "La lisya Lola" do
+	  it "Tiene cabeza" do
+		  expect(@la_lista_Lola.instance_variable_defined?("@head")).to eq(true)
+	  end
+	    
+	end
    end
 
   describe "Node" do
