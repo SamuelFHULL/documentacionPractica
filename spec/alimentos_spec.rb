@@ -60,3 +60,11 @@ RSpec.describe Alimentos do
 
   
 end
+
+RSpec.describe Lista do
+	context "Existe clase Lista" do
+		it "Se puede hacer new" do
+			l1 = Lista.new
+		end
+	end
+end
