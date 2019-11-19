@@ -20,6 +20,9 @@ RSpec.describe Alimentos do
     
     @lista_alimentos = [@cafe,@leche_vaca, @huevos, @pollo, @tofu, @nuez, @cerveza, @salmon, @carne_vaca]
     @lista_cantidades = [2,4,3,7,10,2,7,4,6]
+
+    @n1 = Node.new(@camarones,nil,nil)
+
   end
 
   it "has a version number" do
@@ -59,24 +62,31 @@ RSpec.describe Alimentos do
   end
 
   
-end
 
-RSpec.describe Lista do
-	context "Existe clase Lista" do
-		it "Se puede hacer new" do
-			l1 = Lista.new
-		end
-	end
+  describe "Lista" do
+    context "Existe clase Lista" do
+      it "Se puede hacer new" do
+        l1 = Lista.new
+      end
+     end
 	#context "Atributos de la clase" do
 	#end
-end
+   end
 
-RSpec.describe Node do
-	context "Estructura Nodo" do
-		it "Existe la estructura nodo" do
-			n1 = Node.new
-		end
-	end
+  describe "Node" do
+    context "Estructura Nodo" do
+      it "Existe la estructura nodo" do
+        n1 = Node.new
+        puts n1
+      end
+      it "Existe un nodo con sus datos, siguiente y previo" do
+        puts @n1
+        expect(@n1.next).to eq(nil)
+        expect(@n1.value).to eq(@camarones)
+	expect(@n1.prev).to eq(nil)
+      end
+    end
+  end
 end
 
 
