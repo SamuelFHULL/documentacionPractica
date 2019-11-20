@@ -20,8 +20,12 @@ RSpec.describe Alimentos do
     
     @lista_alimentos = [@cafe,@leche_vaca, @huevos, @pollo, @tofu, @nuez, @cerveza, @salmon, @carne_vaca]
     @lista_cantidades = [2,4,3,7,10,2,7,4,6]
-
+    
+    @nodo_test = Node.new(@carne_vaca, nil, nil)
     @n1 = Node.new(@camarones,nil,nil)
+    @n2 = Node.new(@salmon,nil,nil)
+    @n3 = Node.new(@leche_vaca,nil,nil)
+    @n4 = Node.new(@nuez, nil, nil)
     @la_lista_Lola = Lista.new
 
   end
@@ -85,6 +89,12 @@ RSpec.describe Alimentos do
 	    @la_lista_Lola.insert_head(@n1)
 	    expect(@la_lista_Lola.size()).to eq(1)
 	  end
+	  it "se pueden insertar varios elementos en la lista" do
+	    @la_lista_Lola.insert_head(@n2)
+	    @la_lista_Lola.insert_head(@n3)
+	    @la_lista_Lola.insert_head(@n4)
+	    expect(@la_lista_Lola.size()).to eq(4)
+	  end
 	end
    end
 
@@ -95,10 +105,10 @@ RSpec.describe Alimentos do
         puts n1
       end
       it "Existe un nodo con sus datos, siguiente y previo" do
-        puts @n1
-        expect(@n1.next).to eq(nil)
-        expect(@n1.value).to eq(@camarones)
-	expect(@n1.prev).to eq(nil)
+        puts @nodo_test
+        expect(@nodo_test.next).to eq(nil)
+        expect(@nodo_test.value).to eq(@carne_vaca)
+	expect(@nodo_test.prev).to eq(nil)
       end
     end
   end
