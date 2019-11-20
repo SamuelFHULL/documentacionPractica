@@ -99,6 +99,10 @@ RSpec.describe Alimentos do
 	    @la_lista_Lola.extract_head
 	    expect(@la_lista_Lola.size()).to eq(3)
 	  end
+	  it "se puede eliminar el ultimo elemento" do
+	    @la_lista_Lola.extract_tail
+	    expect(@la_lista_Lola.size).to eq(2)
+	  end
 	end
    end
 

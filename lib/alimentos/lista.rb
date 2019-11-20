@@ -37,4 +37,19 @@ class Lista
     end
     
   end
+  def extract_tail
+    if @size != 0
+      aux = @tail
+      if @size > 1
+        @tail.prev.next = nil
+      else
+	@head = nil
+      end
+      @tail = @tail.prev
+      @size = @size - 1
+      return aux
+    else
+      puts "La lista esta vacia"
+    end
+  end
 end
