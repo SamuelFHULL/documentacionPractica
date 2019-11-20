@@ -95,6 +95,10 @@ RSpec.describe Alimentos do
 	    @la_lista_Lola.insert_head(@n4)
 	    expect(@la_lista_Lola.size()).to eq(4)
 	  end
+	  it "se puede eliminar el primer elemento de la lista" do
+	    @la_lista_Lola.extract_head
+	    expect(@la_lista_Lola.size()).to eq(3)
+	  end
 	end
    end
 

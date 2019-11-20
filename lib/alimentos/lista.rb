@@ -21,4 +21,20 @@ class Lista
     value.prev = nil
 
   end
+  def extract_head
+    if @size != 0
+      aux = @head
+      if @size > 1
+        @head.next.prev = nil
+      else
+        @tail = nil
+      end      
+      @head = @head.next
+      @size = @size-1
+      return aux
+    else
+      puts "La lista esta vacia"
+    end
+    
+  end
 end
