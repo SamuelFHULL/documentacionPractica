@@ -82,8 +82,8 @@ RSpec.describe Alimentos do
 	context "metodos de instancia de la lista" do
 	  it "se puede meter un elemento en la lista" do
 	    expect(@la_lista_Lola.size()).to eq(0)
-	    @la_lista_Lola.insert_tail(@n1)
-	    expect(@la_lista_Lola.size()).to eq(0)
+	    @la_lista_Lola.insert_head(@n1)
+	    expect(@la_lista_Lola.size()).to eq(1)
 	  end
 	end
    end
