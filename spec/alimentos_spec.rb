@@ -136,17 +136,17 @@ RSpec.describe Alimentos do
 
 	  end
 	  it "Emisiones anuales de GEI" do
-	    #aux = Alimento::Node.new
-	    #sumGEI = 0
-	    #cont = 0
-	    #aux = @dieta_espanola.head
-	    #while cont < @dieta_espanola.size-1 do
-	      #sumGEI += aux.value.gei.round(4)
-	      #aux = aux.next
-	     # cont += 1
-	    #end
-	    #puts sumGEI*365
-		  expect(sumGEI.round(2)).to eq(5525.11)
+	    aux = Alimento::Node.new
+	    sumGEIanual = 0
+	    cont = 0
+	    aux = @dieta_espanola.head
+	    while cont < @dieta_espanola.size-1 do
+	      sumGEIanual+= aux.value.gei.round(4)
+	      aux = aux.next
+	      cont += 1
+	    end
+	    sumGEIanual*=365
+	    expect(sumGEIanual.round(2)).to eq(5526.1)
 	  end
 	end
    end
