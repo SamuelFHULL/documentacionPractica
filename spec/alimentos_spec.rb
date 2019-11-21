@@ -91,6 +91,7 @@ RSpec.describe Alimentos do
 	    @lista_test.insert_head(@nuez)
 	    expect(@lista_test.size()).to eq(4)
 	  end
+	  
 	  it "se puede eliminar el primer elemento de la lista" do
 	    @lista_test.extract_head
 	    expect(@lista_test.size()).to eq(3)
@@ -120,19 +121,33 @@ RSpec.describe Alimentos do
 	    @dieta_locura.insert_head(@carne_cordero)
 	    @dieta_locura.insert_head(@nuez)
 
+	    #Dieta vasca
+	    @dieta_vasca = Alimento::Lista.new
+	    @dieta_vasca.insert_head(@lentejas)
+	    @dieta_vasca.insert_head(@nuez)
+	    @dieta_vasca.insert_head(@chocolate)
+	    @dieta_vasca.insert_head(@queso)
+	    @dieta_vasca.insert_head(@huevos)
+	    @dieta_vasca.insert_head(@carne_vaca)
+
+
 	  end
 
 	  it "Emisiones diarias de gases de efecto invernadero" do
 	    sumGEIesp = 0
 	    sumGEIloc = 0
+	    sumGEIvasca = 0
 	    cont = 0
             auxEsp = @dieta_espanola.head
 	    auxLoc = @dieta_locura.head
+	    auxVasca = @dieta_vasca.head
 	    while cont < @dieta_espanola.size do
 	      sumGEIesp += auxEsp.value.gei.round(4)
 	      sumGEIloc += auxLoc.value.gei.round(4)
+	      sumGEIvasca += auxVasca.value.gei.round(4)
 	      auxEsp = auxEsp.next
 	      auxLoc = auxLoc.next
+	      auxVasca = auxVasca.next
 	      cont += 1
             end
 	    puts sumGEIesp
@@ -140,6 +155,7 @@ RSpec.describe Alimentos do
 
 	    expect(sumGEIesp.round(2)).to eq(65.14)
 	    expect(sumGEIloc.round(2)).to eq(76.64)
+	    expect(sumGEIvasca.round(2)).to eq(65.14)
 
 	  end
 	  it "Emisiones anuales de GEI" do
