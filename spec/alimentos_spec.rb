@@ -150,48 +150,57 @@ RSpec.describe Alimentos do
 	      auxVasca = auxVasca.next
 	      cont += 1
             end
-	    puts sumGEIesp
-	    puts sumGEIloc
 
 	    expect(sumGEIesp.round(2)).to eq(65.14)
 	    expect(sumGEIloc.round(2)).to eq(76.64)
-	    expect(sumGEIvasca.round(2)).to eq(65.14)
+	    expect(sumGEIvasca.round(2)).to eq(68.2)
 
 	  end
 	  it "Emisiones anuales de GEI" do
 	    sumGEIanualEsp = 0
 	    sumGEIanualLoc = 0
+	    sumGEIanualVasca = 0
 	    cont = 0
 	    auxEsp = @dieta_espanola.head
 	    auxLoc = @dieta_locura.head
+	    auxVasca = @dieta_vasca.head
 	    while cont < @dieta_espanola.size do
 	      sumGEIanualEsp += auxEsp.value.gei.round(4)
 	      sumGEIanualLoc += auxLoc.value.gei.round(4)
+	      sumGEIanualVasca += auxVasca.value.gei.round(4)
 	      auxEsp = auxEsp.next
 	      auxLoc = auxLoc.next
+	      auxVasca = auxVasca.next
 	      cont += 1
 	    end
 	    sumGEIanualEsp *= 365
 	    sumGEIanualLoc *= 365
+	    sumGEIanualVasca *= 365
 
 	    expect(sumGEIanualEsp.round(2)).to eq(23776.1)
 	    expect(sumGEIanualLoc.round(2)).to eq(27973.6)
+	    expect(sumGEIanualVasca.round(2)).to eq(24893.0)
 	  end
 	  it "Uso terreno para la dieta" do
 	    terrenoEsp = 0
 	    terrenoLoc = 0
+	    terrenoVasca = 0
 	    cont = 0
 	    auxEsp = @dieta_espanola.head
 	    auxLoc = @dieta_locura.head
+	    auxVasca = @dieta_vasca.head
 	    while cont < @dieta_espanola.size do
 	      terrenoEsp += auxEsp.value.terreno
 	      terrenoLoc += auxLoc.value.terreno
+	      terrenoVasca += auxVasca.value.terreno
 	      auxEsp = auxEsp.next
 	      auxLoc = auxLoc.next
+	      auxVasca = auxVasca.next
 	      cont+=1
 	    end
 	    expect(terrenoEsp.round(2)).to eq(225.42)
 	    expect(terrenoLoc.round(2)).to eq(367.62)
+	    expect(terrenoVasca.round(2)).to eq(225.4)
 	  end
 	end
    end
