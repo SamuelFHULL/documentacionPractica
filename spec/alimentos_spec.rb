@@ -149,6 +149,15 @@ RSpec.describe Alimentos do
 	    expect(sumGEIanual.round(2)).to eq(5526.1)
 	  end
 	  it "Uso terreno para la dieta" do
+	    aux = Alimento::Node.new
+	    terreno = 0
+	    cont = 0
+	    aux = @dieta_espanola.head
+	    while cont < @dieta_espanola.size-1 do
+	      terreno += aux.value.terreno
+	      aux = aux.next
+	      cont+=1
+	    end
 	    expect(terreno).to eq(61.42)
 	  end
 	end
