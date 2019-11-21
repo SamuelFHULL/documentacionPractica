@@ -20,14 +20,6 @@ RSpec.describe Alimentos do
     
     @lista_alimentos = [@cafe,@leche_vaca, @huevos, @pollo, @tofu, @nuez, @cerveza, @salmon, @carne_vaca]
     @lista_cantidades = [2,4,3,7,10,2,7,4,6]
-=begin
-    #@nodo_test = Node.new(@carne_vaca, nil, nil)
-    @n1 = Alimento::Node.new(@camarones,nil,nil)
-    @n2 = Alimento::Node.new(@salmon,nil,nil)
-    @n3 = Alimento::Node.new(@leche_vaca,nil,nil)
-    @n4 = Alimento::Node.new(@nuez, nil, nil)
-    @la_lista_Lola = Alimento::Lista.new
-=end
 
   end
 
@@ -118,21 +110,36 @@ RSpec.describe Alimentos do
             @dieta_espanola.insert_head(@queso)
             @dieta_espanola.insert_head(@cerveza)
             @dieta_espanola.insert_head(@nuez)
+
+	    #Dieta locura por la carne
+	    @dieta_locura = Alimento::Lista.new
+	    @dieta_locura.insert_head(@pollo)
+	    @dieta_locura.insert_head(@cerveza)
+	    @dieta_locura.insert_head(@carne_vaca)
+	    @dieta_locura.insert_head(@cafe)
+	    @dieta_locura.insert_head(@carne_cordero)
+	    @dieta_locura.insert_head(@nuez)
 	  end
 
 	  it "Emisiones diarias de gases de efecto invernadero" do
-            aux = Alimento::Node.new
-	    sumGEI = 0
+	    sumGEIesp = 0
+	    sumGEIloc = 0
 	    cont = 0
-            aux = @dieta_espanola.head
-	    while cont < @dieta_espanola.size-1 do
-	      sumGEI += aux.value.gei.round(4)
-	      aux = aux.next
+            auxEsp = @dieta_espanola.head
+	    auxLoc = @dieta_locura.head
+	    while cont < @dieta_espanola.size do
+	      sumGEIesp += auxEsp.value.gei.round(4)
+	      puts auxLoc.value
+	      sumGEIloc += auxLoc.value.gei.round(4)
+	      auxEsp = auxEsp.next
+	      auxLoc = auxLoc.next
 	      cont += 1
             end
-	    puts sumGEI
+	    puts sumGEIesp
+	    puts sumGEIloc
 
-	    expect(sumGEI.round(2)).to eq(15.14)
+	    expect(sumGEIesp.round(2)).to eq(15.14)
+	    expect(sumGEIloc.round(2)).to eq(15.14)
 
 	  end
 	  it "Emisiones anuales de GEI" do
@@ -140,7 +147,7 @@ RSpec.describe Alimentos do
 	    sumGEIanual = 0
 	    cont = 0
 	    aux = @dieta_espanola.head
-	    while cont < @dieta_espanola.size-1 do
+	    while cont < @dieta_espanola.size do
 	      sumGEIanual+= aux.value.gei.round(4)
 	      aux = aux.next
 	      cont += 1
