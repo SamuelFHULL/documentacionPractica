@@ -119,6 +119,7 @@ RSpec.describe Alimentos do
 	    @dieta_locura.insert_head(@cafe)
 	    @dieta_locura.insert_head(@carne_cordero)
 	    @dieta_locura.insert_head(@nuez)
+
 	  end
 
 	  it "Emisiones diarias de gases de efecto invernadero" do
@@ -129,7 +130,6 @@ RSpec.describe Alimentos do
 	    auxLoc = @dieta_locura.head
 	    while cont < @dieta_espanola.size do
 	      sumGEIesp += auxEsp.value.gei.round(4)
-	      puts auxLoc.value
 	      sumGEIloc += auxLoc.value.gei.round(4)
 	      auxEsp = auxEsp.next
 	      auxLoc = auxLoc.next
@@ -138,34 +138,44 @@ RSpec.describe Alimentos do
 	    puts sumGEIesp
 	    puts sumGEIloc
 
-	    expect(sumGEIesp.round(2)).to eq(15.14)
-	    expect(sumGEIloc.round(2)).to eq(15.14)
+	    expect(sumGEIesp.round(2)).to eq(65.14)
+	    expect(sumGEIloc.round(2)).to eq(76.64)
 
 	  end
 	  it "Emisiones anuales de GEI" do
-	    aux = Alimento::Node.new
-	    sumGEIanual = 0
+	    sumGEIanualEsp = 0
+	    sumGEIanualLoc = 0
 	    cont = 0
-	    aux = @dieta_espanola.head
+	    auxEsp = @dieta_espanola.head
+	    auxLoc = @dieta_locura.head
 	    while cont < @dieta_espanola.size do
-	      sumGEIanual+= aux.value.gei.round(4)
-	      aux = aux.next
+	      sumGEIanualEsp += auxEsp.value.gei.round(4)
+	      sumGEIanualLoc += auxLoc.value.gei.round(4)
+	      auxEsp = auxEsp.next
+	      auxLoc = auxLoc.next
 	      cont += 1
 	    end
-	    sumGEIanual*=365
-	    expect(sumGEIanual.round(2)).to eq(5526.1)
+	    sumGEIanualEsp *= 365
+	    sumGEIanualLoc *= 365
+
+	    expect(sumGEIanualEsp.round(2)).to eq(23776.1)
+	    expect(sumGEIanualLoc.round(2)).to eq(27973.6)
 	  end
 	  it "Uso terreno para la dieta" do
-	    aux = Alimento::Node.new
-	    terreno = 0
+	    terrenoEsp = 0
+	    terrenoLoc = 0
 	    cont = 0
-	    aux = @dieta_espanola.head
-	    while cont < @dieta_espanola.size-1 do
-	      terreno += aux.value.terreno
-	      aux = aux.next
+	    auxEsp = @dieta_espanola.head
+	    auxLoc = @dieta_locura.head
+	    while cont < @dieta_espanola.size do
+	      terrenoEsp += auxEsp.value.terreno
+	      terrenoLoc += auxLoc.value.terreno
+	      auxEsp = auxEsp.next
+	      auxLoc = auxLoc.next
 	      cont+=1
 	    end
-	    expect(terreno).to eq(61.42)
+	    expect(terrenoEsp.round(2)).to eq(225.42)
+	    expect(terrenoLoc.round(2)).to eq(367.62)
 	  end
 	end
    end
