@@ -1,6 +1,5 @@
-
+module Alimento
 Node = Struct.new(:value, :next, :prev)
-
 class Lista
   attr_reader :head, :tail, :size
   def initialize
@@ -9,16 +8,17 @@ class Lista
     @size = 0
   end
   def insert_head(value)
+    nodo = Node.new(value,nil,nil)
     if @size == 0
-      @tail = value
-      value.next = nil
+      @tail = nodo
+      nodo.next = nil
     else
-      @head.prev = value
-      value.next = @head
+      @head.prev = nodo
+      nodo.next = @head
     end
     @size = @size + 1
-    @head = value
-    value.prev = nil
+    @head = nodo
+    nodo.prev = nil
 
   end
   def extract_head
@@ -53,3 +53,6 @@ class Lista
     end
   end
 end
+end
+
+

@@ -1,4 +1,4 @@
-
+module Alimento
 class Alimento
 	attr_reader :nombre, :gei, :terreno, :proteinas
 	def initialize(nombre, proteinas, carbohidratos, lipidos, gei, terreno)
@@ -39,3 +39,5 @@ class Alimento
 		end
 	end	
 end
+end
+

@@ -2,31 +2,32 @@ require 'alimentos'
 RSpec.describe Alimentos do
   
   before :all do
-    @carne_vaca = Alimento.new("Carne de vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
-    @carne_cordero = Alimento.new("Carne de cordero", 18.0, 0.0, 17.0, 20.0, 185.0)
-    @camarones = Alimento.new("Camarones", 17.6, 1.5, 0.6, 18.0, 2.0)
-    @chocolate = Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
-    @salmon = Alimento.new("Salmon", 19.9, 0.0, 13.6, 6.0, 3.7)
-    @cerdo = Alimento.new("cerdo", 21.5, 0.0, 6.3, 7.6, 11.0)
-    @pollo = Alimento.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1)
-    @queso = Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
-    @cerveza = Alimento.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22)
-    @leche_vaca = Alimento.new("Leche de vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
-    @huevos = Alimento.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7)
-    @cafe = Alimento.new("Cafe", 0.1, 0.0, 0.0, 0.4, 3.4)
-    @tofu = Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
-    @lentejas = Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
-    @nuez = Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
+    @carne_vaca = Alimento::Alimento.new("Carne de vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
+    @carne_cordero = Alimento::Alimento.new("Carne de cordero", 18.0, 0.0, 17.0, 20.0, 185.0)
+    @camarones = Alimento::Alimento.new("Camarones", 17.6, 1.5, 0.6, 18.0, 2.0)
+    @chocolate = Alimento::Alimento.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
+    @salmon = Alimento::Alimento.new("Salmon", 19.9, 0.0, 13.6, 6.0, 3.7)
+    @cerdo = Alimento::Alimento.new("cerdo", 21.5, 0.0, 6.3, 7.6, 11.0)
+    @pollo = Alimento::Alimento.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1)
+    @queso = Alimento::Alimento.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
+    @cerveza = Alimento::Alimento.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22)
+    @leche_vaca = Alimento::Alimento.new("Leche de vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
+    @huevos = Alimento::Alimento.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7)
+    @cafe = Alimento::Alimento.new("Cafe", 0.1, 0.0, 0.0, 0.4, 3.4)
+    @tofu = Alimento::Alimento.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
+    @lentejas = Alimento::Alimento.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
+    @nuez = Alimento::Alimento.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
     
     @lista_alimentos = [@cafe,@leche_vaca, @huevos, @pollo, @tofu, @nuez, @cerveza, @salmon, @carne_vaca]
     @lista_cantidades = [2,4,3,7,10,2,7,4,6]
-    
-    @nodo_test = Node.new(@carne_vaca, nil, nil)
-    @n1 = Node.new(@camarones,nil,nil)
-    @n2 = Node.new(@salmon,nil,nil)
-    @n3 = Node.new(@leche_vaca,nil,nil)
-    @n4 = Node.new(@nuez, nil, nil)
-    @la_lista_Lola = Lista.new
+=begin
+    #@nodo_test = Node.new(@carne_vaca, nil, nil)
+    @n1 = Alimento::Node.new(@camarones,nil,nil)
+    @n2 = Alimento::Node.new(@salmon,nil,nil)
+    @n3 = Alimento::Node.new(@leche_vaca,nil,nil)
+    @n4 = Alimento::Node.new(@nuez, nil, nil)
+    @la_lista_Lola = Alimento::Lista.new
+=end
 
   end
 
@@ -69,54 +70,86 @@ RSpec.describe Alimentos do
   
 
   describe "Lista" do
+    before :all do
+      @lista_test = Alimento::Lista.new
+    end
     context "Existe clase Lista" do
       it "Se puede hacer new" do
-        l1 = Lista.new
+        l1 = Alimento::Lista.new
       end
      end
 	context "Variables de instancia de la lista" do
 	  it "Tiene cabeza" do
-            expect(@la_lista_Lola.instance_variable_defined?("@head")).to eq(true)
+            expect(@lista_test.instance_variable_defined?("@head")).to eq(true)
 	  end
 	  it "Tiene cola" do
-            expect(@la_lista_Lola.instance_variable_defined?("@tail")).to eq(true)
+            expect(@lista_test.instance_variable_defined?("@tail")).to eq(true)
 	  end
 	    
 	end
 	context "metodos de instancia de la lista" do
 	  it "se puede meter un elemento en la lista" do
-	    expect(@la_lista_Lola.size()).to eq(0)
-	    @la_lista_Lola.insert_head(@n1)
-	    expect(@la_lista_Lola.size()).to eq(1)
+	    expect(@lista_test.size()).to eq(0)
+	    @lista_test.insert_head(@carne_vaca)
+	    expect(@lista_test.size()).to eq(1)
 	  end
 	  it "se pueden insertar varios elementos en la lista" do
-	    @la_lista_Lola.insert_head(@n2)
-	    @la_lista_Lola.insert_head(@n3)
-	    @la_lista_Lola.insert_head(@n4)
-	    expect(@la_lista_Lola.size()).to eq(4)
+	    @lista_test.insert_head(@cafe)
+	    @lista_test.insert_head(@tofu)
+	    @lista_test.insert_head(@nuez)
+	    expect(@lista_test.size()).to eq(4)
 	  end
 	  it "se puede eliminar el primer elemento de la lista" do
-	    @la_lista_Lola.extract_head
-	    expect(@la_lista_Lola.size()).to eq(3)
+	    @lista_test.extract_head
+	    expect(@lista_test.size()).to eq(3)
 	  end
 	  it "se puede eliminar el ultimo elemento" do
-	    @la_lista_Lola.extract_tail
-	    expect(@la_lista_Lola.size).to eq(2)
+	    @lista_test.extract_tail
+	    expect(@lista_test.size).to eq(2)
+	  end
+	end
+	context "dietas" do
+	  before :all do
+	    #Dieta española
+            @dieta_espanola = Alimento::Lista.new
+	    @dieta_espanola.insert_head(@carne_vaca)
+            @dieta_espanola.insert_head(@cafe)
+            @dieta_espanola.insert_head(@leche_vaca)
+            @dieta_espanola.insert_head(@queso)
+            @dieta_espanola.insert_head(@cerveza)
+            @dieta_espanola.insert_head(@nuez)
+	  end
+
+	  it "Emisiones diarias de gases de efecto invernadero" do
+            aux = Alimento::Node.new
+	    sumGEI = 0
+	    cont = 0
+            aux = @dieta_espanola.head
+	    while cont < @dieta_espanola.size-1 do
+	      sumGEI += aux.value.gei.round(4)
+	      aux = aux.next
+	      cont += 1
+            end
+	    puts sumGEI
+
+	    expect(sumGEI.round(2)).to eq(15.14)
+
 	  end
 	end
    end
 
   describe "Node" do
+    before :each do
+      @nodo1 = Alimento::Node.new(@carne_vaca,nil,nil)
+    end
     context "Estructura Nodo" do
       it "Existe la estructura nodo" do
-        n1 = Node.new
-        puts n1
+        n1 = Alimento::Node.new(@carne_vaca,nil,nil)
       end
       it "Existe un nodo con sus datos, siguiente y previo" do
-        puts @nodo_test
-        expect(@nodo_test.next).to eq(nil)
-        expect(@nodo_test.value).to eq(@carne_vaca)
-	expect(@nodo_test.prev).to eq(nil)
+        expect(@nodo1.next).to be(nil)
+        expect(@nodo1.value).to eq(@carne_vaca)
+	expect(@nodo1.prev).to be(nil)
       end
     end
   end
