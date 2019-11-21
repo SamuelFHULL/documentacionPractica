@@ -148,6 +148,9 @@ RSpec.describe Alimentos do
 	    sumGEIanual*=365
 	    expect(sumGEIanual.round(2)).to eq(5526.1)
 	  end
+	  it "Uso terreno para la dieta" do
+	    expect(terreno).to eq(61.42)
+	  end
 	end
    end
 
