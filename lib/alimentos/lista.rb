@@ -60,6 +60,21 @@ class Lista
       aux = aux.next 
     end
   end
+  def [] (index)
+    if index.is_a?Integer
+      if index == 0
+        return @head.value
+      elsif index == (@size-1)
+        return @tail.value
+      elsif index < (@size-1) && index > 0
+        iterator = @head
+	index.times{iterator = iterator.next}
+	return iterator.value
+      else
+        return nil
+      end
+    end
+  end
 end
 end
 

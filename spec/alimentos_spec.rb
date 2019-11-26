@@ -295,8 +295,14 @@ RSpec.describe Alimentos do
         expect(@plato1.instance_variable_defined?("@lista_cantidades")).to eq(true)
       end
     end
+    context "porcentajes" do
+      it "porcentaje de proteinas del conjunto de alimentos" do
+	      expect(@plato1.por_proteinas).to eq(49)
+      end
+    end
+    end
   end
-end
+
 
 
 

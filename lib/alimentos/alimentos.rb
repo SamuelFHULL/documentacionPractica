@@ -1,7 +1,7 @@
 module Alimento
 class Alimento
 	include Comparable
-	attr_reader :nombre, :gei, :terreno, :proteinas
+	attr_reader :nombre, :gei, :terreno, :proteinas, :carbohidratos, :lipidos
 	def initialize(nombre, proteinas, carbohidratos, lipidos, gei, terreno)
 		@nombre = nombre
 		@proteinas = proteinas
