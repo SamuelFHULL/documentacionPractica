@@ -63,6 +63,9 @@ RSpec.describe Alimentos do
     it "Existe metodo para comparar que un alimento sea menor que otro" do
       expect(@cafe<@carne_vaca).to eq(true)
     end
+    it "Existe un metodo para comprobar que un alimento es mayor que otro" do
+      expect(@carne_vaca > @cafe).to eq(true)
+    end
   end
  
 
@@ -208,6 +211,16 @@ RSpec.describe Alimentos do
 	    expect(terrenoEsp.round(2)).to eq(225.42)
 	    expect(terrenoLoc.round(2)).to eq(367.62)
 	    expect(terrenoVasca.round(2)).to eq(225.4)
+	  end
+	end
+	context "Las listas se pueden enumerar" do
+	  it "se puede hacer collect" do
+	    @lista_test.insert_head(@pollo)
+	    @lista_test.insert_head(@tofu)
+	    @lista_test.insert_head(@carne_vaca)
+	    @lista_test.insert_head(@cerveza)
+
+	    expect(@lista_test.collect {@pollo}).to eq([@pollo, @pollo, @pollo, @pollo])
 	  end
 	end
    end

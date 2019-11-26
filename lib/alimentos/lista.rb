@@ -1,6 +1,7 @@
 module Alimento
 Node = Struct.new(:value, :next, :prev)
 class Lista
+  include Enumerable
   attr_reader :head, :tail, :size
   def initialize
     @head = nil
@@ -50,6 +51,13 @@ class Lista
       return aux
     else
       puts "La lista esta vacia"
+    end
+  end
+  def each(&block)
+    aux = @head
+    while aux!=nil do
+      yield aux.value
+      aux = aux.next 
     end
   end
 end
