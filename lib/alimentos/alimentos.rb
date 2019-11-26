@@ -1,5 +1,6 @@
 module Alimento
 class Alimento
+	include Comparable
 	attr_reader :nombre, :gei, :terreno, :proteinas
 	def initialize(nombre, proteinas, carbohidratos, lipidos, gei, terreno)
 		@nombre = nombre
@@ -14,6 +15,10 @@ class Alimento
 	end
 	def valorEnergetico
 		(@proteinas*4 + @carbohidratos*4 + @lipidos*9).round(4)
+	end
+
+	def <=>(otroAlimento)
+		valorEnergetico <=> otroAlimento.valorEnergetico
 	end
 	def impactoAmbiental(lista_alimentos, lista_cantidades, genero) #genero es para saber si nos referimos a hombre (0) o mujer (1)
 		gei = 0
