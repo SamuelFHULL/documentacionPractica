@@ -226,15 +226,22 @@ RSpec.describe Alimentos do
 	  end
 	end
 	context "Las listas se pueden enumerar" do
-	  it "se puede hacer collect" do
-	    @lista_test.insert_head(@pollo)
-	    @lista_test.insert_head(@tofu)
-	    @lista_test.insert_head(@carne_vaca)
-	    @lista_test.insert_head(@cerveza)
+	  before :each do
+	    @lista_enumerable = Alimento::Lista.new
+	    @lista_enumerable.insert_head(@pollo)
+	    @lista_enumerable.insert_head(@tofu)
+	    @lista_enumerable.insert_head(@carne_vaca)
+	    @lista_enumerable.insert_head(@cerveza)
 
-	    expect(@lista_test.collect {@pollo}).to eq([@pollo, @pollo, @pollo, @pollo, @pollo, @pollo])
+	  end
+	  it "se puede hacer collect" do
+	    expect(@lista_enumerable.collect {|x| x}).to eq([@cerveza, @carne_vaca, @tofu, @pollo])
+	  end
+	  it "se puede hacer select" do
+            expect(@lista_enumerable.select {|x| x.valorEnergetico}).to eq([@cerveza, @carne_vaca, @tofu, @pollo])
 	  end
 	end
+	
    end
 
   describe "Node" do
