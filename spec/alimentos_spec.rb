@@ -72,6 +72,9 @@ RSpec.describe Alimentos do
     it "Existe metodo para comprobar que un alimento es >= que otro" do
       expect(@carne_vaca >= @cafe).to eq(true)
     end
+    it "Existe metodo para comprobar que un alimento es igual a otro" do
+      expect(@carne_vaca == @cafe).to eq(false)
+    end
   end
  
 
