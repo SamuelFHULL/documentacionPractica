@@ -268,6 +268,24 @@ RSpec.describe Alimentos do
       end
     end
   end
+  describe "PlatoA" do
+    before :each do
+      @lista_alimentos1 = Alimentos::Lista.new
+      @lista_alimentos1.insert_head(@salmon)
+      @lista_alimentos1.insert_head(@lentejas)
+      @lista_alimentos1.insert_head(@carne_vaca)
+      @lista_alimentos1.insert_head(@cafe)
+      @lista_cantidades1 = Alimentos::Lista.new
+      @lista_cantidades1.insert_head(1)
+      @lista_cantidades1.insert_head(2)
+      @lista_cantidades1.insert_head(1)
+      @lista_cantidades1.insert_head(3)
+      @plato1 = Alimento::Plato.new("plato1", @lista_alimentos1, @lista_cantidades1)   
+    end
+    context "Obtener atributos de plato" do
+      expect(@plato1.nombre).to eq("plato1")
+    end
+  end
 end
 
 
