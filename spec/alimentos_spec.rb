@@ -297,7 +297,7 @@ RSpec.describe Alimentos do
     end
     context "porcentajes" do
       it "porcentaje de proteinas del conjunto de alimentos" do
-	      expect(@plato1.por_proteinas).to eq(49)
+	      expect(@plato1.por_proteinas).to eq(41.69)
       end
     end
     end
