@@ -287,7 +287,13 @@ RSpec.describe Alimentos do
         expect(@plato1.nombre).to eq("plato1")
       end
     end
+    context "Existen variables de instancias" do
+      it "Existe el conjunto de alimentos" do
+        expect(@plato1.instance_variable_defined?(:lista_alimentos)).to eq(true)
+      end
+    end
   end
 end
+
 
 
