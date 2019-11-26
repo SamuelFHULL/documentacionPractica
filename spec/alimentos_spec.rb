@@ -243,6 +243,9 @@ RSpec.describe Alimentos do
 	  it "se puede hacer max" do
             expect(@lista_enumerable.max).to eq(@pollo)
 	  end
+	  it "se puede hacer min" do
+	    expect(@lista_enumerable.min).to eq(@cerveza)
+	  end
 	end
 	
    end
