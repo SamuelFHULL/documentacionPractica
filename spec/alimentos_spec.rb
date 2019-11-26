@@ -58,6 +58,7 @@ RSpec.describe Alimentos do
   it "Existe metodo impacto ambiental" do
 	  expect(@carne_vaca.impactoAmbiental(@lista_alimentos, @lista_cantidades,0)).to eq(1559.7199999999998)
   end
+ 
 
   
 
