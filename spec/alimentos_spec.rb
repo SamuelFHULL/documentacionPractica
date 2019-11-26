@@ -246,6 +246,9 @@ RSpec.describe Alimentos do
 	  it "se puede hacer min" do
 	    expect(@lista_enumerable.min).to eq(@cerveza)
 	  end
+	  it "se puede hacer sort" do
+            expect(@lista_enumerable.sort {|a,b| a<=>b}).to eq([@cerveza, @tofu, @carne_vaca, @pollo])
+	  end
 	end
 	
    end
