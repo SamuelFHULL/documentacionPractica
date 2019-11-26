@@ -240,6 +240,9 @@ RSpec.describe Alimentos do
 	  it "se puede hacer select" do
             expect(@lista_enumerable.select {|x| x.valorEnergetico}).to eq([@cerveza, @carne_vaca, @tofu, @pollo])
 	  end
+	  it "se puede hacer max" do
+            expect(@lista_enumerable.max).to eq(@pollo)
+	  end
 	end
 	
    end
