@@ -232,7 +232,7 @@ RSpec.describe Alimentos do
 	    @lista_test.insert_head(@carne_vaca)
 	    @lista_test.insert_head(@cerveza)
 
-	    expect(@lista_test.collect {@pollo}).to eq([@pollo, @pollo, @pollo, @pollo])
+	    expect(@lista_test.collect {@pollo}).to eq([@pollo, @pollo, @pollo, @pollo, @pollo, @pollo])
 	  end
 	end
    end
