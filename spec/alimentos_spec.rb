@@ -302,6 +302,9 @@ RSpec.describe Alimentos do
       it "porcentaje de carbohidratos del conjunto de alimentos" do
         expect(@plato1.por_carbohidratos).to eq(49.1)
       end
+      it "porcentaje de lipidos del conjunto de alimentos" do
+        exepct(@plato1.por_lipidos).to eq(27)
+      end
     end
     end
   end
