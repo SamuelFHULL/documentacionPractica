@@ -291,6 +291,9 @@ RSpec.describe Alimentos do
       it "Existe el conjunto de alimentos" do
         expect(@plato1.instance_variable_defined?("@lista_alimentos")).to eq(true)
       end
+      it "Existe el conjunto de cantidades" do
+        expect(@plato1.instance_variable_defined?("@lista_cantidades")).to eq(true)
+      end
     end
   end
 end
