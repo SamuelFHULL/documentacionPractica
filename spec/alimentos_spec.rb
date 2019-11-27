@@ -406,16 +406,17 @@ RSpec.describe Alimentos do
           it "se puede hacer min" do
             expect(@lista_platos.min).to eq(@plato1)
           end
+
           it "se puede hacer sort" do
             expect(@lista_platos.sort {|a,b| a<=>b}).to eq([@plato1, @plato2, @plato3])
           end
+=end
         end
 
+
     end
-=end
   end
-end
-end
+
 
 
 
