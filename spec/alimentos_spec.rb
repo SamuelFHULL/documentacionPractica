@@ -339,6 +339,9 @@ RSpec.describe Alimentos do
       it "Uso terreno" do
 	      expect(@plato2.uso_terreno).to eq(174.5)
       end
+      it "Eficiencia energetica formateada" do
+	      expect(@plato2.to_s).to eq("Energia Cafe -> 0.4 Energia Carne de vaca -> 112.3 Energia Lentejas -> 314.6 Energia Salmon -> 202.0  || Energia Total -> 629.3 ")
+      end
     end
   end
   end

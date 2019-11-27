@@ -24,6 +24,19 @@ class PlatoB < PlatoA
                 return usoTerreno
         end
 
+	def to_s 
+		cadena = ""
+		i = 0
+		valorEtotal = 0.0
+		while i< @lista_alimentos.size do
+			cadena+= "Energia #{@lista_alimentos[i].nombre} -> #{@lista_alimentos[i].valorEnergetico} "
+			valorEtotal+= @lista_alimentos[i].valorEnergetico
+			i+=1
+		end
+		cadena+= " || Energia Total -> #{valorEtotal} "
+		return cadena
+	end
+
 
 	
 end
