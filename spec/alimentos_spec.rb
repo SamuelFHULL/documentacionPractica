@@ -311,6 +311,11 @@ RSpec.describe Alimentos do
 	      expect(@plato1.valor_energetico).to eq(629.3)
       end
     end
+    context "Métodos para imprimir platos" do
+      it "obtener conjunto de alimentos formateado" do
+        expect(@plato1.to_s).to eq("salmon -> 1 lentejas -> 2 carne de vaca -> 1 cafe -> 3 ")
+      end
+    end
     end
   end
 
