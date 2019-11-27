@@ -317,6 +317,27 @@ RSpec.describe Alimentos do
       end
     end
     end
+  describe "PlatoB" do
+    before :each do
+      @lista_alimentos2 = Alimento::Lista.new
+      @lista_alimentos2.insert_head(@salmon)
+      @lista_alimentos2.insert_head(@lentejas)
+      @lista_alimentos2.insert_head(@carne_vaca)
+      @lista_alimentos2.insert_head(@cafe)
+      @lista_cantidades2 = Alimento::Lista.new
+      @lista_cantidades2.insert_head(1)
+      @lista_cantidades2.insert_head(2)
+      @lista_cantidades2.insert_head(1)
+      @lista_cantidades2.insert_head(3)
+      @plato2 = Alimento::PlatoB.new("plato2", @lista_alimentos2, @lista_cantidades2)
+
+    end
+    context "Impacto ambiental" do
+      it "Gases GEI diarios" do
+        expect(@plato2.emisionesGEI).to eq(43543)
+      end
+    end
+  end
   end
 
 
