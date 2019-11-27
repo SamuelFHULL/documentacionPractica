@@ -8,8 +8,10 @@ class PlatoB < PlatoA
 		emisionesGEI = 0.0
 		i = 0
 		while i<@lista_alimentos.size do
-			emisionesGEI += @lista_alimentos[i
+			emisionesGEI += @lista_alimentos[i].gei
+			i+=1
 		end
+		return emisionesGEI
 	end
 
 	

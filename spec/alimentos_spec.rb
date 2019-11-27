@@ -334,7 +334,7 @@ RSpec.describe Alimentos do
     end
     context "Impacto ambiental" do
       it "Gases GEI diarios" do
-        expect(@plato2.emisionesGEI).to eq(43543)
+	      expect(@plato2.emisionesGEI).to eq(56.8)
       end
     end
   end
