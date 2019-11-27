@@ -24,6 +24,25 @@ class PlatoA
 		end
 		return ((aux_carbohidratos/total_nutrientes)*100.0).round(2)
 	end
+	def por_lipidos
+		aux_lipidos = 0.0
+		i = 1
+		while i < @lista_alimentos.size do
+			aux_lipidos += @lista_alimentos[i].lipidos * @lista_cantidades[i]
+			i+=1
+		end
+		return ((aux_lipidos/total_nutrientes)*100.0).round(2)
+	end
+	def valor_energetico
+		i = 0
+		valorC = 0.0
+		while i< @lista_alimentos.size do
+			valorC += @lista_alimentos[i].valorEnergetico
+			i+=1
+		end
+		return valorC
+	end
+
 	def total_nutrientes
 		i = 0
 		proteinas = carbohidratos = lipidos = 0.0

@@ -303,7 +303,12 @@ RSpec.describe Alimentos do
         expect(@plato1.por_carbohidratos).to eq(49.1)
       end
       it "porcentaje de lipidos del conjunto de alimentos" do
-        exepct(@plato1.por_lipidos).to eq(27)
+	      expect(@plato1.por_lipidos).to eq(9.21)
+      end
+    end
+    context "Valor calórico del plato" do
+      it "se accede al VCT del conjunto de alimentos en kcal" do
+	      expect(@plato1.valor_energetico).to eq(629.3)
       end
     end
     end
