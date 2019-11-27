@@ -366,26 +366,54 @@ RSpec.describe Alimentos do
     end
     context "Platos comparables" do
       it "Existe metodo para comparar que un alimento sea menor que otro" do
-      expect(@plato2<@plato3).to eq(true)
+        expect(@plato2<@plato3).to eq(true)
+      end
+      it "Existe un metodo para comprobar que un alimento es mayor que otro" do
+        expect(@plato3 > @plato2).to eq(true)
+      end
+      it "Existe metodo para comprobar que un alimento es menor o igual que otro" do
+        expect(@plato2 <= @plato3).to eq(true)
+      end
+      it "Existe metodo para comprobar que un alimento es >= que otro" do
+        expect(@plato3 >= @plato2).to eq(true)
+      end
+      it "Existe metodo para comprobar que un alimento es igual a otro" do
+        expect(@plato3 == @plato2).to eq(false)
+      end
+      it "Existe metodo para comprobar que un alimento es distinto de otro" do
+        expect(@plato2 != @plato3).to eq(true)
+      end
     end
-    it "Existe un metodo para comprobar que un alimento es mayor que otro" do
-      expect(@plato3 > @plato2).to eq(true)
+=begin
+    context "los platos son enumerables" do
+          before :each do
+            @lista_platos = Alimento::Lista.new
+            @lista_platos.insert_head(@plato1)
+            @lista_platos.insert_head(@plato2)
+	    @lista_platos.insert_head(@plato3)
+
+          end
+          it "se puede hacer collect" do
+            expect(@lista_platos.collect {|x| x}).to eq([@plato3, @plato2, @plato1])
+          end
+          it "se puede hacer select" do
+            expect(@lista_platos.select {|x| x==@plato1}).to eq([@plato1])
+          end
+          it "se puede hacer max" do
+            expect(@lista_platos.max).to eq(@plato3)
+          end
+          it "se puede hacer min" do
+            expect(@lista_platos.min).to eq(@plato1)
+          end
+          it "se puede hacer sort" do
+            expect(@lista_platos.sort {|a,b| a<=>b}).to eq([@plato1, @plato2, @plato3])
+          end
+        end
+
     end
-    it "Existe metodo para comprobar que un alimento es menor o igual que otro" do
-      expect(@plato2 <= @plato3).to eq(true)
-    end
-    it "Existe metodo para comprobar que un alimento es >= que otro" do
-      expect(@plato3 >= @plato2).to eq(true)
-    end
-    it "Existe metodo para comprobar que un alimento es igual a otro" do
-      expect(@plato3 == @plato2).to eq(false)
-    end
-    it "Existe metodo para comprobar que un alimento es distinto de otro" do
-      expect(@plato2 != @plato3).to eq(true)
-    end
-    end
+=end
   end
-  end
+end
 
 
 
