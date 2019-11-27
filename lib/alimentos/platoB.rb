@@ -14,6 +14,17 @@ class PlatoB < PlatoA
 		return emisionesGEI
 	end
 
+	def uso_terreno
+                usoTerreno = 0.0
+                i = 0
+                while i<@lista_alimentos.size do
+                        usoTerreno += @lista_alimentos[i].terreno
+                        i+=1
+                end
+                return usoTerreno
+        end
+
+
 	
 end
 end
