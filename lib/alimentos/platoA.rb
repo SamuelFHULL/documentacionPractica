@@ -54,5 +54,15 @@ class PlatoA
 		end
 		return proteinas + lipidos + carbohidratos
 	end
+	def to_s
+		i=0
+		cadena = ""
+		while i<@lista_alimentos.size do
+			cadena += "#{@lista_alimentos[i].nombre} -> #{@lista_cantidades[i]} "
+			i += 1
+		end
+		return cadena
+	end
+
 end
 end
