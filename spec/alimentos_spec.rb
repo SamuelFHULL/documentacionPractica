@@ -384,7 +384,7 @@ RSpec.describe Alimentos do
         expect(@plato2 != @plato3).to eq(true)
       end
     end
-=begin
+
     context "los platos son enumerables" do
           before :each do
             @lista_platos = Alimento::Lista.new
@@ -396,6 +396,7 @@ RSpec.describe Alimentos do
           it "se puede hacer collect" do
             expect(@lista_platos.collect {|x| x}).to eq([@plato3, @plato2, @plato1])
           end
+=begin
           it "se puede hacer select" do
             expect(@lista_platos.select {|x| x==@plato1}).to eq([@plato1])
           end
@@ -413,6 +414,7 @@ RSpec.describe Alimentos do
     end
 =end
   end
+end
 end
 
 
