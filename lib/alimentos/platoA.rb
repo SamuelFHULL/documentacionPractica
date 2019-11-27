@@ -1,5 +1,6 @@
 module Alimento
 class PlatoA
+	include Comparable
 	attr_reader :nombre
 	def initialize (nombre, lista_alimentos, lista_cantidades)
 		@nombre = nombre
@@ -62,6 +63,10 @@ class PlatoA
 			i += 1
 		end
 		return cadena
+	end
+
+	def <=>(otroPlato)
+		return valor_energetico <=> otroPlato.valor_energetico
 	end
 
 end
