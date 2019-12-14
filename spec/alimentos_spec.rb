@@ -415,6 +415,24 @@ RSpec.describe Alimentos do
 
 
     end
+    describe "menu" do
+      before :each do
+        @plato_principal = Alimento::Lista.new
+	@segundo_plato = Alimento::Lista.new
+	@postre = Alimento::Lista.new
+	@plato_principal.insert_head(@lentejas)
+	@plato_principal.insert_head(@queso)
+	@plato_principal.insert_head(@huevos)
+	@segundo_plato.insert_head(@carne_vaca)
+        @segundo_plato.insert_head(@camarones)
+	@segundo_plato.insert_head(@salmon)
+	@postre.insert_head(@nuez)
+	@postre.insert_head(@cafe)
+	@postre.insert_head(@leche_vaca)
+	@menu_dietetico = [@plato_principal, @segundo_plato, @postre]
+	@precios_menu = [30, 40, 15]
+      end
+    end
   end
 
 
