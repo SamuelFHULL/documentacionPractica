@@ -451,6 +451,11 @@ RSpec.describe Alimentos do
 	@preciosMenu = [40,60,20]
 
       end
+      context "Pruebas usando paradigma de programacion funcional" do
+        it "huella nutricional maxima del menu" do
+		expect(@menuDietetico.collect {|x| x.huella_nutricional}.max).to eq(2.0)
+	end
+      end
     end
    end
 
