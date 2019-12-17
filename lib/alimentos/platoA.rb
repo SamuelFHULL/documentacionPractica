@@ -61,7 +61,9 @@ class PlatoA
 		while i<@lista_alimentos.size do
 			cadena += "#{@lista_alimentos[i].nombre} -> #{@lista_cantidades[i]} "
 			i += 1
+		
 		end
+	
 		return cadena
 	end
 

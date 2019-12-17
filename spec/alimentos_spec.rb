@@ -23,9 +23,7 @@ RSpec.describe Alimentos do
 
   end
 
-  it "has a version number" do
-    expect(Alimentos::VERSION).not_to be nil
-  end
+  #it "has a version number" do
   context "Existencia de variables de instancia" do
   it "Existe un nombre de alimento" do
 	  expect(@carne_vaca.instance_variable_defined?("@nombre")).to eq(true)
@@ -415,25 +413,47 @@ RSpec.describe Alimentos do
 
 
     end
-    describe "menu" do
+
+    describe "menu dietetico" do
       before :each do
-        @plato_principal = Alimento::Lista.new
-	@segundo_plato = Alimento::Lista.new
-	@postre = Alimento::Lista.new
-	@plato_principal.insert_head(@lentejas)
-	@plato_principal.insert_head(@queso)
-	@plato_principal.insert_head(@huevos)
-	@segundo_plato.insert_head(@carne_vaca)
-        @segundo_plato.insert_head(@camarones)
-	@segundo_plato.insert_head(@salmon)
-	@postre.insert_head(@nuez)
-	@postre.insert_head(@cafe)
-	@postre.insert_head(@leche_vaca)
-	@menu_dietetico = [@plato_principal, @segundo_plato, @postre]
-	@precios_menu = [30, 40, 15]
+	#Crear plato principal
+	@listaAlimentosPlatoPrincipal = Alimento::Lista.new
+        @listaCantidadesPlatoPrincipal = Alimento::Lista.new
+	@listaAlimentosPlatoPrincipal.insert_head(@lentejas)
+	@listaAlimentosPlatoPrincipal.insert_head(@salmon)
+	@listaAlimentosPlatoPrincipal.insert_head(@queso)
+        @listaCantidadesPlatoPrincipal.insert_head(2)
+	@listaCantidadesPlatoPrincipal.insert_head(3)
+	@listaCantidadesPlatoPrincipal.insert_head(1)
+	@platoPrincipal = Alimento::PlatoB.new("Plato principal", @listaAlimentosPlatoPrincipal, @listaCantidadesPlatoPrincipal)
+	#Crear segundo plato
+	@listaAlimentosSegundoPlato = Alimento::Lista.new
+	@listaCantidadesSegundoPlato = Alimento::Lista.new
+	@listaAlimentosSegundoPlato.insert_head(@pollo)
+	@listaAlimentosSegundoPlato.insert_head(@carne_vaca)
+	@listaAlimentosSegundoPlato.insert_head(@cerdo)
+	@listaCantidadesSegundoPlato.insert_head(3)
+	@listaCantidadesSegundoPlato.insert_head(1)
+	@listaCantidadesSegundoPlato.insert_head(2)
+	@segundoPlato = Alimento::PlatoB.new("Segundo plato", @listaAlimentosSegundoPlato, @listaCantidadesSegundoPlato)
+	#Crear postre
+	@listaAlimentosPostre = Alimento::Lista.new
+	@listaCantidadesPostre = Alimento::Lista.new
+	@listaAlimentosPostre.insert_head(@cafe)
+	@listaAlimentosPostre.insert_head(@leche_vaca)
+	@listaAlimentosPostre.insert_head(@nuez)
+	@listaCantidadesPostre.insert_head(2)
+	@listaCantidadesPostre.insert_head(1)
+	@listaCantidadesPostre.insert_head(3)
+	@postre = Alimento::PlatoB.new("Postre",@listaAlimentosPostre, @listaCantidadesPostre)
+
+	@menuDietetico = [@platoPrincipal, @segundoPlato, @postre]
+	@preciosMenu = [40,60,20]
+
       end
     end
-  end
+   end
+
 
 
 
