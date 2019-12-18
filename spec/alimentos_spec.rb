@@ -455,6 +455,18 @@ RSpec.describe Alimentos do
         it "huella nutricional maxima del menu" do
 		expect(@menuDietetico.collect {|x| x.huella_nutricional}.max).to eq(2.0)
 	end
+	it "Incrementar precios de los platos" do
+          @huellaNutricionalMax = @menuDietetico.collect{|x| x.huella_nutricional}.max
+	  @porcentaje = 0.0
+	  if @huellaNutricionalMax < 2
+            @porcentaje = 0.10
+	  elsif @huellaNutricionalMax >= 5
+            @porcentaje = 0.30
+	  else
+	    @porcentaje = 0.20
+	  end
+	  @preciosModificados = @preciosMenu.collect{|x| x += x*@porcentaje}
+	end
       end
     end
    end

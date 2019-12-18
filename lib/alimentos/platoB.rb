@@ -38,25 +38,25 @@ class PlatoB < PlatoA
 	end
 
 	def huella_nutricional
-         indiceImpactoEnergia, indiceImpactoCarbono = 0
-         if valor_energetico < 670
-	   indiceImpactoEnergia = 1.0
-	 elsif valor_energetico > 830
-	   indiceImpactoEnergia = 3.0
-	 else
-	   indiceImpactoEnergia = 2.0
+          indiceImpactoEnergia, indiceImpactoCarbono = 0
+          if valor_energetico < 670
+	    indiceImpactoEnergia = 1.0
+	  elsif valor_energetico > 830
+	    indiceImpactoEnergia = 3.0
+	  else
+	    indiceImpactoEnergia = 2.0
          	   
-	 end
+	  end
 
-	 if emisionesGEI < 800
-	   indiceImpactoCarbono = 1.0
-	 elsif emisionesGEI > 1200
-           indiceImpactoCarbono = 3.0
-	 else
-           indiceImpactoCarbono = 2.0
-	 end
+	  if emisionesGEI < 800
+	    indiceImpactoCarbono = 1.0
+	  elsif emisionesGEI > 1200
+            indiceImpactoCarbono = 3.0
+	  else
+            indiceImpactoCarbono = 2.0
+	  end
 
-	 return (indiceImpactoEnergia + indiceImpactoCarbono) / 2.0
+	  return (indiceImpactoEnergia + indiceImpactoCarbono) / 2.0
 
 
 	
