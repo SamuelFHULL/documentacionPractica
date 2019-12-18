@@ -1,9 +1,11 @@
 module Alimento
+#Clase PlatoB que hereda de Plato padre (PlatoA)
 class PlatoB < PlatoA
+	#Constructor de la clase PlatoB
 	def initialize(nombre, lista_alimentos, lista_cantidades)
 		super(nombre, lista_alimentos, lista_cantidades)
 	end
-
+        #Metodo que calculas las emisiones de los GEI de un plato
 	def emisionesGEI
 		emisionesGEI = 0.0
 		i = 0
@@ -13,7 +15,7 @@ class PlatoB < PlatoA
 		end
 		return emisionesGEI
 	end
-
+        #Metodo que calcula el uso de terreno de un plato
 	def uso_terreno
                 usoTerreno = 0.0
                 i = 0
@@ -23,7 +25,7 @@ class PlatoB < PlatoA
                 end
                 return usoTerreno
         end
-
+        #Metodo que imprime el plato formateado
 	def to_s 
 		cadena = ""
 		i = 0
@@ -36,7 +38,7 @@ class PlatoB < PlatoA
 		cadena+= " || Energia Total -> #{valorEtotal} "
 		return cadena
 	end
-
+	#Metodo que calcula la huella nutricional de un plato
 	def huella_nutricional
           indiceImpactoEnergia, indiceImpactoCarbono = 0
           if valor_energetico < 670

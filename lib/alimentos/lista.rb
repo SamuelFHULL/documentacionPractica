@@ -1,13 +1,17 @@
 module Alimento
+#Estructura que representa un nodo
 Node = Struct.new(:value, :next, :prev)
+#Clase que representa una Lista enlazada
 class Lista
   include Enumerable
   attr_reader :head, :tail, :size
+  #Constructor de la clase lista
   def initialize
     @head = nil
     @tail = nil
     @size = 0
   end
+  #Metodo para insertar un nodo por la cabeza
   def insert_head(value)
     nodo = Node.new(value,nil,nil)
     if @size == 0
@@ -22,6 +26,7 @@ class Lista
     nodo.prev = nil
 
   end
+  #Metodo para extraer un nodo por la cabeza
   def extract_head
     if @size != 0
       aux = @head
@@ -38,6 +43,7 @@ class Lista
     end
     
   end
+  #Metodo para extraer un nodo por la cola
   def extract_tail
     if @size != 0
       aux = @tail
@@ -53,6 +59,7 @@ class Lista
       puts "La lista esta vacia"
     end
   end
+  #Metodo para seleccionar un nodo de la lista
   def each(&block)
     aux = @head
     while aux!=nil do
@@ -60,6 +67,7 @@ class Lista
       aux = aux.next 
     end
   end
+  #Operador corchete para acceder a un nodo de la lista
   def [] (index)
     if index.is_a?Integer
       if index == 0
